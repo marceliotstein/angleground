@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html ng-app="projectStore">
+<head>
+  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="angleground.css" />
+  <script type="text/javascript" src="angular/angular.js"></script>
+  <script type="text/javascript" src="ui-bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
+  <script type="text/javascript" src="angleground.js"></script>
+  <script type="text/javascript" src="ab-button.js"></script>
+
+</head>
+<body ng-controller="projectController as projectlist">
+
+  <!-- first row -->
+  <div class="row">
+    <div class="col-xs-1">
+    </div>
+    <div class="col-xs-10 text-center mes-noborder">
+      <div ng-controller="DropdownCtrl">
+        <!-- Simple dropdown -->
+        <span class="dropdown" dropdown on-toggle="toggled(open)">
+          <a href class="dropdown-toggle" dropdown-toggle>
+            Click me for a dropdown, yo!
+          </a>
+          <ul class="dropdown-menu">
+            <li ng-repeat="choice in items">
+              <a href>{{choice}}</a>
+            </li>
+          </ul>
+        </span>
+
+        <!-- Single button -->
+        <div class="btn-group" dropdown is-open="status.isopen">
+          <button type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle ng-disabled="disabled">
+            Button dropdown <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </div>
+
+        <!-- Split button -->
+        <div class="btn-group" dropdown>
+          <button type="button" class="btn btn-danger">Action</button>
+          <button type="button" class="btn btn-danger dropdown-toggle" dropdown-toggle>
+            <span class="caret"></span>
+            <span class="sr-only">Split button!</span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </div>
+
+        <hr />
+        <p>
+          <button type="button" class="btn btn-default btn-sm" ng-click="toggleDropdown($event)">Toggle button dropdown</button>
+          <button type="button" class="btn btn-warning btn-sm" ng-click="disabled = !disabled">Enable/Disable</button>
+        </p>
+
+      </div>
+
+    </div>
+    <div class="col-xs-1 text-center">
+    </div>
+  </div>
+
+  <!-- second row -->
+  <div class="row">
+    <div class="col-xs-1">
+    </div>
+    <div class="col-xs-10 text-center mes-noborder">
+      <div class="list-group">
+        <div class="list-group-item mes-noborder" ng-repeat="project in projectlist.projects">
+          <h3>{{project.name}}</em></h3>
+          <div ng-controller="GalleryController as gallery"  ng-show="project.images.length">
+            <ul class="img-thumbnails clearfix">
+              <li class="small-image pull-left thumbnail" ng-repeat="image in project.images">
+                <img ng-src="{{image}}" ng-mouseover="onMouseOver($event)" ng-mouseleave="onMouseLeave($event)" />
+              </li>
+            </ul>
+            <div class="featuresite"><img ng-src="{{featuredImage}}" /></div>
+
+            <div class="mes-debug"><strong>MOUSE OVER RESULT:</strong>{{onMouseOverResult}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-1 text-center">
+    </div>
+  </div>
+
+</body>
+</html>

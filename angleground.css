@@ -1,0 +1,14 @@
+/*
+ * marceliotstein.css -- css for MarcEliotStein.com
+ */
+
+.mes-noborder {
+  padding: 0px;
+  margin: 0px;
+  border: 0;
+}
+
+.mes-debug {
+  display: none;
+}
+/* END */
