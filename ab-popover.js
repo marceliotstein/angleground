@@ -5,17 +5,15 @@ angular.module('projectStore').controller('PopoverDemoCtrl', function ($scope) {
 });
 
 
+angular.module('projectStore').directive("popoverHtmlUnsafePopup", function () {
+  return {
+    restrict: "EA",
+    replace: true,
+    scope: { title: "@", content: "@", placement: "@", animation: "&", isOpen: "&" },
+    templateUrl: "popover-html.html"
+    };
+})
 
-angular.module('projectStore')
-    .directive("popoverHtmlUnsafePopup", function () {
-      return {
-        restrict: "EA",
-        replace: true,
-        scope: { title: "@", content: "@", placement: "@", animation: "&", isOpen: "&" },
-        templateUrl: "popover-html.html"
-      };
-    })
-
-    .directive("popoverHtmlUnsafe", [ "$tooltip", function ($tooltip) {
-      return $tooltip("popoverHtmlUnsafe", "popover", "click");
-    }]);
+angular.module('projectStore').directive("popoverHtmlUnsafe", [ "$tooltip", function ($tooltip) {
+    return $tooltip("popoverHtmlUnsafe", "popover", "click");
+}]);

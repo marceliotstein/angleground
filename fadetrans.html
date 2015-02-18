@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="angleground.css" />
+  <link rel="stylesheet" type="text/css" href="fadetrans.css" />
+  <script type="text/javascript" src="angular/angular.js"></script>
+  <script type="text/javascript" src="ui-bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
+  <script type="text/javascript" src="fadetrans.js" />
+
+</head>
+<body>
+  <p>ABCDEF</p>
+
+  <div ng-app="ngSimpleTicker" data-ng-controller="messagesController" data-ng-init='msgs=[{msg:"Awaiting first message"},{msg:"A 2nd message"},{msg:"A 3rd message"}];activeMsg=0' style="height:28px;">
+
+    <div id="ngtickerMessage"  class="ngtickerMessage">
+        <ul >
+            <li class="list" ng-style="{opacity:setVisible($index)}" data-ng-repeat="msgObj in msgs track by $index">{{msgObj.msg}}</li>
+        </ul>
+     </div>
+</div>
+
+<div data-ng-app="" data-ng-controller="messagesController" data-ng-init='msgs=[{msg:"Awaiting first message"},{msg:"A 2nd message"},{msg:"A 3rd message"}];activeMsg=0' style="height:28px;" >
+
+    <div id="ngtickerMessage"  class="ngtickerMessage">
+        <ul >
+            <li ng-style="{display:setVisible($index)}" data-ng-repeat="msgObj in msgs track by $index">{{msgObj.msg}}</li>
+        </ul>
+     </div>
+</div>
+
+</body>
+</html>

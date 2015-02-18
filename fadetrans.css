@@ -1,0 +1,5 @@
+.ngtickerMessage > ul li {
+    display:initial;
+    position:absolute;
+    top:100px;
+}
